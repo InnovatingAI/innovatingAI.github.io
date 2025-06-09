@@ -1,0 +1,1911 @@
+/**
+* Template Name: Anyar
+* Template URL: https://bootstrapmade.com/anyar-free-multipurpose-one-page-bootstrap-theme/
+* Updated: Aug 07 2024 with Bootstrap v5.3.3
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# Font & Color Variables
+# Help: https://bootstrapmade.com/color-system/
+--------------------------------------------------------------*/
+/* Fonts */
+:root {
+  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root { 
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #07467c; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #0880e8; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: rgba(255, 255, 255, 0.78);  /* The default color of the main navmenu links */
+  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #0880e8; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f0f8ff;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #005cab;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #0077de;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/* PHP Email Form Messages
+------------------------------*/
+.php-email-form .error-message {
+  display: none;
+  background: #df1529;
+  color: #ffffff;
+  text-align: left;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .sent-message {
+  display: none;
+  color: #ffffff;
+  background: #059652;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .loading {
+  display: none;
+  background: var(--surface-color);
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+}
+
+.php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid var(--accent-color);
+  border-top-color: var(--surface-color);
+  animation: php-email-form-loading 1s linear infinite;
+}
+
+@keyframes php-email-form-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulsating Play Button
+------------------------------*/
+.pulsating-play-btn {
+  width: 94px;
+  height: 94px;
+  background: radial-gradient(var(--accent-color) 50%, color-mix(in srgb, var(--accent-color), transparent 75%) 52%);
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.pulsating-play-btn:before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  animation-delay: 0s;
+  animation: pulsate-play-btn 2s;
+  animation-direction: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps;
+  opacity: 1;
+  border-radius: 50%;
+  border: 5px solid color-mix(in srgb, var(--accent-color), transparent 30%);
+  top: -15%;
+  left: -15%;
+  background: rgba(198, 16, 0, 0);
+}
+
+.pulsating-play-btn:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-40%) translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #fff;
+  z-index: 100;
+  transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.pulsating-play-btn:hover:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-40%) translateY(-50%);
+  width: 0;
+  height: 0;
+  border: none;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #fff;
+  z-index: 200;
+  animation: none;
+  border-radius: 0;
+}
+
+.pulsating-play-btn:hover:after {
+  border-left: 15px solid var(--accent-color);
+  transform: scale(20);
+}
+
+@keyframes pulsate-play-btn {
+  0% {
+    transform: scale(0.6, 0.6);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+.header {
+  --background-color: rgba(255, 255, 255, 0);
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 10px 0;
+  transition: all 0.5s;
+  z-index: 997;
+}
+
+.header .logo {
+  line-height: 1;
+}
+
+.header .logo img {
+  max-height: 36px;
+  margin-right: 8px;
+}
+
+.header .logo h1 {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 400;
+  color: var(--heading-color);
+}
+
+.header .header-social-links {
+  padding-right: 15px;
+}
+
+.header .header-social-links a {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  padding-left: 6px;
+  display: inline-block;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.header .header-social-links a:hover {
+  color: var(--accent-color);
+}
+
+.header .header-social-links a i {
+  line-height: 0px;
+}
+
+@media (max-width: 1200px) {
+  .header .logo {
+    order: 1;
+  }
+
+  .header .header-social-links {
+    order: 2;
+  }
+
+  .header .navmenu {
+    order: 3;
+  }
+}
+
+.scrolled .header {
+  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Global Header on Scroll
+------------------------------*/
+.scrolled .header {
+  --background-color: rgba(0, 78, 144, 0.9);
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Navmenu - Desktop */
+@media (min-width: 1200px) {
+  .navmenu {
+    padding: 0;
+  }
+
+  .navmenu ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .navmenu li {
+    position: relative;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-color);
+    padding: 18px 15px;
+    font-size: 16px;
+    font-family: var(--nav-font);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    transition: 0.3s;
+  }
+
+  .navmenu li:last-child a {
+    padding-right: 0;
+  }
+
+  .navmenu li:hover>a,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-hover-color);
+  }
+
+  .navmenu .dropdown ul {
+    margin: 0;
+    padding: 10px 0;
+    background: var(--nav-dropdown-background-color);
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    left: 14px;
+    top: 130%;
+    opacity: 0;
+    transition: 0.3s;
+    border-radius: 4px;
+    z-index: 99;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .navmenu .dropdown ul li {
+    min-width: 200px;
+  }
+
+  .navmenu .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: none;
+    color: var(--nav-dropdown-color);
+  }
+
+  .navmenu .dropdown ul a i {
+    font-size: 12px;
+  }
+
+  .navmenu .dropdown ul a:hover,
+  .navmenu .dropdown ul .active:hover,
+  .navmenu .dropdown ul li:hover>a {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu .dropdown:hover>ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
+
+  .navmenu .dropdown .dropdown ul {
+    top: 0;
+    left: -90%;
+    visibility: hidden;
+  }
+
+  .navmenu .dropdown .dropdown:hover>ul {
+    opacity: 1;
+    top: 0;
+    left: -100%;
+    visibility: visible;
+  }
+}
+
+/* Navmenu - Mobile */
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    color: var(--nav-color);
+    font-size: 28px;
+    line-height: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .navmenu {
+    padding: 0;
+    z-index: 9997;
+  }
+
+  .navmenu ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+    inset: 60px 20px 20px 20px;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 6px;
+    background-color: var(--nav-mobile-background-color);
+    overflow-y: auto;
+    transition: 0.3s;
+    z-index: 9998;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-dropdown-color);
+    padding: 10px 20px;
+    font-family: var(--nav-font);
+    font-size: 17px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  }
+
+  .navmenu a i:hover,
+  .navmenu a:focus i:hover {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
+  .navmenu a:hover,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu .active i,
+  .navmenu .active:focus i {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    transform: rotate(180deg);
+  }
+
+  .navmenu .dropdown ul {
+    position: static;
+    display: none;
+    z-index: 99;
+    padding: 10px 0;
+    margin: 10px 20px;
+    background-color: var(--nav-dropdown-background-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    box-shadow: none;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .navmenu .dropdown ul ul {
+    background-color: rgba(33, 37, 41, 0.1);
+  }
+
+  .navmenu .dropdown>.dropdown-active {
+    display: block;
+    background-color: rgba(33, 37, 41, 0.03);
+  }
+
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle {
+    color: #fff;
+    position: absolute;
+    font-size: 32px;
+    top: 15px;
+    right: 15px;
+    margin-right: 0;
+    z-index: 9999;
+  }
+
+  .mobile-nav-active .navmenu {
+    position: fixed;
+    overflow: hidden;
+    inset: 0;
+    background: rgba(33, 37, 41, 0.8);
+    transition: 0.3s;
+  }
+
+  .mobile-nav-active .navmenu>ul {
+    display: block;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Footer
+--------------------------------------------------------------*/
+.footer {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-size: 14px;
+  position: relative;
+}
+
+.footer .footer-newsletter {
+  background-color: color-mix(in srgb, var(--default-color), transparent 97%);
+  padding: 50px 0;
+}
+
+.footer .footer-newsletter h4 {
+  font-size: 24px;
+}
+
+.footer .footer-newsletter .newsletter-form {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  padding: 6px 8px;
+  position: relative;
+  border-radius: 4px;
+  background-color: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  transition: 0.3s;
+  border-radius: 50px;
+}
+
+.footer .footer-newsletter .newsletter-form:focus-within {
+  border-color: var(--accent-color);
+}
+
+.footer .footer-newsletter .newsletter-form input[type=email] {
+  border: 0;
+  padding: 4px;
+  width: 100%;
+  background-color: var(--surface-color);
+  color: var(--default-color);
+}
+
+.footer .footer-newsletter .newsletter-form input[type=email]:focus-visible {
+  outline: none;
+}
+
+.footer .footer-newsletter .newsletter-form input[type=submit] {
+  border: 0;
+  font-size: 16px;
+  padding: 0 20px;
+  margin: -7px -8px -7px 0;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transition: 0.3s;
+  border-radius: 50px;
+}
+
+.footer .footer-newsletter .newsletter-form input[type=submit]:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.footer .footer-top {
+  padding-top: 50px;
+}
+
+.footer .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
+  font-size: 16px;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.footer .social-links a:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.footer h4 {
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer .footer-links {
+  margin-bottom: 30px;
+}
+
+.footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-links ul i {
+  margin-right: 3px;
+  font-size: 12px;
+  line-height: 0;
+  color: var(--accent-color);
+}
+
+.footer .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.footer .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+.footer .footer-links ul a {
+  display: inline-block;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  line-height: 1;
+}
+
+.footer .footer-links ul a:hover {
+  color: var(--accent-color);
+}
+
+.footer .footer-about a {
+  color: var(--heading-color);
+  font-size: 24px;
+  font-weight: 600;
+  font-family: var(--heading-font);
+}
+
+.footer .footer-contact p {
+  margin-bottom: 5px;
+}
+
+.footer .copyright {
+  padding: 25px 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.footer .copyright p {
+  margin-bottom: 0;
+}
+
+.footer .credits {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  background: var(--background-color);
+  transition: all 0.6s ease-out;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #ffffff;
+  border-color: var(--accent-color) transparent var(--accent-color) transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1.5s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Scroll Top Button
+--------------------------------------------------------------*/
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
+  background-color: var(--accent-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+.scroll-top i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Page Titles & Breadcrumbs
+--------------------------------------------------------------*/
+.page-title {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 160px 0 80px 0;
+  text-align: center;
+  position: relative;
+}
+
+.page-title:before {
+  content: "";
+  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  position: absolute;
+  inset: 0;
+}
+
+.page-title h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.page-title .breadcrumbs a {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.page-title .breadcrumbs a:hover {
+  color: var(--default-color);
+}
+
+.page-title .breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.page-title .breadcrumbs ol li+li {
+  padding-left: 10px;
+}
+
+.page-title .breadcrumbs ol li+li::before {
+  content: "/";
+  display: inline-block;
+  padding-right: 10px;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+}
+
+/*--------------------------------------------------------------
+# Global Sections
+--------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  scroll-margin-top: 80px;
+  overflow: clip;
+}
+
+@media (max-width: 1199px) {
+
+  section,
+  .section {
+    scroll-margin-top: 56px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+  text-align: center;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  width: 100%;
+  min-height: 55vh;
+  position: relative;
+  padding: 120px 0 60px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h2 {
+  margin: 0 0 10px 0;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.hero h2 .underlight {
+  position: relative;
+  z-index: 1;
+  padding: 0 5px;
+  display: inline-block;
+}
+
+.hero h2 .underlight:before {
+  content: "";
+  position: absolute;
+  height: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--accent-color);
+  z-index: -1;
+}
+
+.hero p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 32px;
+  }
+}
+
+.hero .btn-get-started {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  font-family: var(--heading-font);
+  font-weight: 500;
+  font-size: 16px;
+  display: inline-block;
+  padding: 8px 40px;
+  border-radius: 50px;
+  transition: 0.5s;
+  border: 2px solid var(--accent-color);
+}
+
+.hero .btn-get-started:hover {
+  background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+
+/*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+.about .content h3 {
+  font-weight: 700;
+  font-size: 34px;
+  margin-bottom: 30px;
+}
+
+.about .content p {
+  margin-bottom: 30px;
+}
+
+.about .content .about-btn {
+  padding: 8px 30px 9px 30px;
+  color: var(--accent-color);
+  border-radius: 50px;
+  transition: 0.3s;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid var(--accent-color);
+}
+
+.about .content .about-btn i {
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+.about .content .about-btn:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.about .icon-box i {
+  font-size: 40px;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.about .icon-box h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.about .icon-box h4 a {
+  color: var(--heading-color);
+  transition: 0.3s;
+}
+
+.about .icon-box p {
+  font-size: 15px;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  margin-bottom: 0;
+}
+
+.about .icon-box:hover h4 a {
+  color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Agent Section
+--------------------------------------------------------------*/
+.agent.section {
+  padding: 60px 0;
+  position: relative;
+  max-width: 1200px; /* 新增最大宽度限制 */
+  margin: 0 auto; /* 居中显示 */
+}
+
+.agent .container {
+  padding: 0 20px; /* 添加内边距 */
+}
+
+.agent h3 {
+  font-weight: 700;
+  font-size: 34px; /* 与about section统一 */
+  margin-bottom: 30px;
+  color: var(--heading-color);
+}
+
+.agent p {
+  font-size: 16px; /* 标准字体大小 */
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 30px; /* 与about section统一 */
+}
+
+.agent .animate-list li {
+  padding-left: 30px; /* 调整缩进 */
+  margin-bottom: 15px;
+}
+
+.agent .img-fluid {
+  max-width: 90%; /* 限制图片宽度 */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 按钮组容器 */
+.agent .btn-group {
+  display: flex;
+  gap: 15px; /* 按钮间距 */
+  margin-top: 30px;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+  .agent.section {
+    padding: 50px 0;
+  }
+  
+  .agent h3 {
+    font-size: 28px;
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .agent.section {
+    padding: 40px 0;
+  }
+  
+  .agent h3 {
+    font-size: 24px;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* 统一按钮样式 - 与model-actions完全一致 */
+.agent .github-btn,
+.agent .arxiv-btn,
+.agent .huggingface-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  background: var(--accent-color);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 70%);
+  border: none;
+  margin-right: 15px; /* 统一使用右侧间距 */
+}
+
+/* 统一悬停效果 */
+.agent .github-btn:hover,
+.agent .arxiv-btn:hover,
+.agent .huggingface-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 50%);
+  background: var(--accent-color);
+}
+
+/* 统一图标样式 */
+.agent .github-btn i,
+.agent .arxiv-btn i {
+  margin-right: 8px; /* 统一使用右侧间距 */
+  font-size: 1.1em;
+}
+
+/* 移除单独的arXiv图标动画 */
+.agent .arxiv-btn i {
+  transition: none;
+  transform: none;
+}
+
+.agent .img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.agent .img-fluid:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .agent h3 {
+    font-size: 1.8rem;
+  }
+  
+  .agent .row.align-items-center {
+    flex-direction: column;
+  }
+  
+  .agent .order-lg-1, 
+  .agent .order-lg-2 {
+    order: 0 !important;
+  }
+  
+  .agent .img-fluid {
+    margin-bottom: 30px;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .agent.section {
+    padding: 40px 0;
+  }
+  
+  .agent h3 {
+    font-size: 1.6rem;
+  }
+  
+  .agent .img-fluid {
+    max-width: 100%;
+  }
+}
+
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .agent .arxiv-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    margin-left: 10px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Benchmark Section
+--------------------------------------------------------------*/
+.benchmark.section {
+  padding: 60px 0;
+  background: #005cab; /* 移除渐变背景 */
+  position: relative;
+  width: 100%; /* 新增最大宽度限制 */
+  margin: 0 auto; /* 居中显示 */
+  --heading-color: white;
+  --default-color: white;
+}
+
+.benchmark.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #005cab;
+  z-index: -1; /* 置于内容层下方 */
+}
+
+.benchmark .tab-content {
+  max-width: 1200px; /* 内容区域保持1200px限制 */
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative; /* 确保内容在背景层上方 */
+}
+
+.benchmark .container {
+  padding: 0 20px; /* 添加内边距 */
+}
+
+.benchmark h2 {
+  color: white;
+}
+
+.benchmark li {
+  color: white;
+  list-style-type: circle; /* 替换为实心方块 */
+  /* 可选值：（空心圆）、decimal（数字）、lower-alpha（小写字母）等 */
+}
+
+.benchmark h3 {
+  font-weight: 700;
+  font-size: 34px; /* 与about section统一 */
+  margin-bottom: 30px;
+  color: white;
+}
+
+.benchmark p {
+  font-size: 16px; /* 标准字体大小 */
+  line-height: 1.6;
+  color: white;
+  margin-bottom: 30px; /* 与about section统一 */
+}
+
+.benchmark .animate-list li {
+  padding-left: 30px; /* 调整缩进 */
+  margin-bottom: 15px;
+}
+
+.benchmark .img-fluid {
+  max-width: 90%; /* 限制图片宽度 */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 按钮组容器 */
+.benchmark .btn-group {
+  display: flex;
+  gap: 15px; /* 按钮间距 */
+  margin-top: 30px;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+  .benchmark.section {
+    padding: 50px 0;
+  }
+  
+  .benchmark h3 {
+    font-size: 28px;
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .benchmark.section {
+    padding: 40px 0;
+  }
+  
+  .benchmark h3 {
+    font-size: 24px;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* 统一按钮样式 - 与model-actions完全一致 */
+.benchmark .github-btn,
+.benchmark .arxiv-btn,
+.benchmark .huggingface-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  background: var(--accent-color);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 70%);
+  border: none;
+  margin-right: 15px; /* 统一使用右侧间距 */
+}
+
+/* 统一悬停效果 */
+.benchmark .github-btn:hover,
+.benchmark .arxiv-btn:hover,
+.benchmark .huggingface-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 50%);
+  background: var(--accent-color);
+}
+
+/* 统一图标样式 */
+.benchmark .github-btn i,
+.benchmark .arxiv-btn i {
+  margin-right: 8px; /* 统一使用右侧间距 */
+  font-size: 1.1em;
+}
+
+/* 移除单独的arXiv图标动画 */
+.benchmark .arxiv-btn i {
+  transition: none;
+  transform: none;
+}
+
+.benchmark .img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.benchmark .img-fluid:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .benchmark h3 {
+    font-size: 1.8rem;
+  }
+  
+  .benchmark .row.align-items-center {
+    flex-direction: column;
+  }
+  
+  .benchmark .order-lg-1, 
+  .benchmark .order-lg-2 {
+    order: 0 !important;
+  }
+  
+  .benchmark .img-fluid {
+    margin-bottom: 30px;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .benchmark.section {
+    padding: 40px 0;
+  }
+  
+  .benchmark h3 {
+    font-size: 1.6rem;
+  }
+  
+  .benchmark .img-fluid {
+    max-width: 100%;
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .benchmark .arxiv-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    margin-left: 10px;
+  }
+}
+
+/* 代码块容器 */
+.code-container {
+  background: #024471; /* 藏青色背景 */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  overflow: hidden;
+  height: 400px;
+  margin: 0 auto;
+}
+
+/* 代码头部样式 */
+.code-header {
+  background: rgba(0,0,0,0.2);
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 代码区域 */
+.code-block {
+  color: #e2e8f0;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 16px;
+  white-space: pre-wrap; /* 允许换行 */
+  word-wrap: break-word; /* 单词过长时也换行 */
+  overflow-x: auto; /* 水平滚动条仅在需要时显示 */
+  overflow-y: auto;
+  max-height: 350px;
+  counter-reset: line;
+}
+
+/* 代码高亮 */
+.code-block code {
+  display: block;
+}
+
+.code-block code::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 2em;
+  margin-right: 1em;
+  color: #6b7280;
+  text-align: right;
+}
+
+/* 语法高亮颜色 */
+.token.keyword { color: #ff79c6; }      /* 关键字 */
+.token.function { color: #50fa7b; }     /* 函数 */
+.token.string { color: #f1fa8c; }       /* 字符串 */
+.token.comment { color: #6272a4; }      /* 注释 */
+.token.punctuation { color: #bd93f9; }  /* 标点 */
+.token.number { color: #bd93f9; }       /* 数字 */
+
+/* 滚动条轨道 */
+.code-block::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+
+/* 滚动条滑块 */
+.code-block::-webkit-scrollbar-thumb {
+  background: #4f46e5; /* 靛蓝色滑块 */
+  border-radius: 4px;
+}
+
+/*--------------------------------------------------------------
+# Resource Section
+--------------------------------------------------------------*/
+.resource.section {
+  padding: 60px 0;
+  background: #005cab;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  --heading-color: white;
+  --default-color: white;
+}
+
+.resource.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #005cab;
+  z-index: -1;
+}
+
+.resource .tab-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.resource .container {
+  padding: 0 20px;
+}
+
+.resource h2 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.resource li {
+  color: white;
+  list-style-type: disc;
+}
+
+.resource h3 {
+  font-weight: 700;
+  font-size: 34px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.resource p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.resource .animate-list li {
+  padding-left: 30px;
+  margin-bottom: 15px;
+}
+
+.resource .img-fluid {
+  max-width: 90%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 外部链接按钮容器 */
+.resource .external-links-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.resource .external-links {
+  display: flex;
+  gap: 10px;
+}
+
+/* 修改按钮文本和边框颜色为白色 */
+.resource .external-links a {
+  color: white !important;
+  border-color: white !important;
+}
+
+/* 修改导航链接样式 */
+.resource .nav-link {
+  color: white !important;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.resource .nav-link.active {
+  background: var(--accent-color);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 70%);
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+}
+
+.resource .nav-link:hover {
+  opacity: 0.9;
+  color: white !important;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.resource .platform-actions .btn {
+  background: var(--accent-color);
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+  .resource.section {
+    padding: 50px 0;
+  }
+  
+  .resource h3 {
+    font-size: 28px;
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+  }
+  
+  .resource .external-links-container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .resource.section {
+    padding: 40px 0;
+  }
+  
+  .resource h3 {
+    font-size: 24px;
+  }
+  
+  .resource .external-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .resource .external-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/*--------------------------------------------------------------
+# Model Section
+--------------------------------------------------------------*/
+.model-table {
+  margin-bottom: 40px;
+}
+
+.performance-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.performance-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.performance-table td {
+  padding: 10px 15px;
+  text-align: center;
+  border-top: 1px solid #dee2e6;
+}
+
+.performance-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.model-content {
+  padding: 30px 0;
+}
+
+@media (max-width: 768px) {
+  .performance-table {
+    font-size: 14px;
+  }
+  
+  .performance-table th, 
+  .performance-table td {
+    padding: 8px 10px;
+  }
+}
+
+/* Model Section Buttons - 与.benchmark .github-btn保持一致 */
+.model-actions .btn-resource {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  background: var(--accent-color);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 70%);
+  border: none; /* 移除边框 */
+}
+
+.model-actions .btn-resource:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 50%);
+  background: var(--accent-color); /* 保持悬停时颜色不变 */
+}
+
+.model-actions .btn-resource i {
+  margin-right: 8px;
+  font-size: 1.1em;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .model-actions {
+    text-align: center;
+  }
+  .model-actions .d-flex {
+    justify-content: center !important;
+    flex-wrap: wrap;
+  }
+  .model-actions .btn-resource {
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Services Section - Dynamic Tab Layout
+--------------------------------------------------------------*/
+.services .nav-tabs {
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.services .nav-tabs::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.services .nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  border: none;
+  background: none;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transform: translateY(0);
+  position: relative;
+}
+
+.services .nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.services .nav-link:hover::before {
+  width: 50%;
+}
+
+.services .nav-link i {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: var(--accent-color);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.services .nav-link:hover i {
+  transform: scale(1.1);
+}
+
+.services .nav-link h4 {
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+  color: var(--heading-color);
+  transition: all 0.3s ease;
+}
+
+.services .nav-link.active,
+.services .nav-link:hover {
+  color: var(--accent-color);
+  background: none;
+  border: none;
+  transform: translateY(-5px);
+}
+
+.services .nav-link.active::before {
+  width: 100%;
+}
+
+.services .nav-link.active h4,
+.services .nav-link:hover h4 {
+  color: var(--accent-color);
+}
+
+.services .tab-content {
+  padding: 20px 0;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.services .tab-pane h3 {
+  color: var(--heading-color);
+  margin-bottom: 20px;
+  font-size: 24px;
+  position: relative;
+  display: inline-block;
+}
+
+.services .tab-pane h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-color);
+  transition: width 0.4s ease;
+}
+
+.services .tab-pane:hover h3::after {
+  width: 100%;
+}
+
+.services .tab-pane p {
+  font-size: 16px;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.services .tab-pane:hover p {
+  color: var(--default-color);
+}
+
+.services .animate-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.services .animate-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+  transition: all 0.3s ease;
+}
+
+.services .animate-list:hover li {
+  transform: translateX(5px);
+}
+
+.services .animate-list li i {
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
+.services .animate-list li:hover i {
+  transform: rotate(15deg);
+}
+
+.services .animate-list li strong {
+  color: var(--heading-color);
+  transition: color 0.3s ease;
+}
+
+.services .animate-list li:hover strong {
+  color: var(--accent-color);
+}
+
+.services .img-fluid {
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services .img-fluid:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.portfolio-container {
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.portfolio-img img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.portfolio-img img:hover {
+  transform: scale(1.02);
+}
+
+.portfolio-item {
+  padding: 15px;
+}
+
+
+/*--------------------------------------------------------------
+# Acknowledgments Section
+--------------------------------------------------------------*/
+.emoji {
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+.lead strong {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.border-top {
+  border-top: 2px solid rgba(0,0,0,0.1) !important;
+}
+
+/*--------------------------------------------------------------
+# Starter Section Section
+--------------------------------------------------------------*/
+.starter-section {
+  /* Add your styles here */
+}
