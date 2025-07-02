@@ -1501,11 +1501,109 @@ section,
   margin-bottom: 15px;
 }
 
+/* Resource平台卡片浮动效果 */
+.resource .platform-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 30px;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.resource .platform-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Resource图片浮动效果 */
 .resource .img-fluid {
   max-width: 90%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.resource .img-fluid:hover {
+  transform: scale(1.05) translateY(-8px) rotateY(5deg);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+/* Resource按钮浮动效果 */
+.resource .platform-actions .btn {
+  background: var(--accent-color);
+  color: white;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 70%);
+  border: none;
+}
+
+.resource .platform-actions .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 50%);
+  background: color-mix(in srgb, var(--accent-color), white 10%);
+}
+
+/* Resource导航标签浮动效果 */
+.resource .platform-selector {
+  margin-bottom: 40px;
+}
+
+.resource .nav-pills .nav-item {
+  margin: 0 5px;
+}
+
+.resource .nav-link {
+  color: white !important;
+  opacity: 0.7;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.resource .nav-link:hover {
+  opacity: 0.9;
+  color: white !important;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.resource .nav-link.active {
+  background: var(--accent-color);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 70%);
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.resource .nav-link.active:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 50%);
+}
+
+.resource .nav-link i {
+  margin-right: 8px;
+  font-size: 1.1em;
+  transition: transform 0.3s ease;
+}
+
+.resource .nav-link:hover i {
+  transform: rotate(10deg);
 }
 
 /* 外部链接按钮容器 */
@@ -1520,80 +1618,47 @@ section,
   gap: 10px;
 }
 
-/* 修改按钮文本和边框颜色为白色 */
+/* 修改按钮文本和边框颜色为白色，添加浮动效果 */
 .resource .external-links a {
   color: white !important;
   border-color: white !important;
-}
-
-/* 修改导航链接样式 */
-.resource .nav-link {
-  color: white !important;
-  opacity: 0.7;
   transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  padding: 12px 24px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
+  backdrop-filter: blur(5px);
 }
 
-.resource .nav-link.active {
-  background: var(--accent-color);
-  box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 70%);
-  position: relative;
-  z-index: 1;
-  opacity: 1;
-}
-
-.resource .nav-link:hover {
-  opacity: 0.9;
-  color: white !important;
+.resource .external-links a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.1);
 }
 
-.resource .platform-actions .btn {
-  background: var(--accent-color);
+/* Feature列表项浮动效果 */
+.resource .feature-list {
+  list-style: none;
+  padding: 0;
 }
 
-/* 响应式调整 */
-@media (max-width: 992px) {
-  .resource.section {
-    padding: 50px 0;
-  }
-  
-  .resource h3 {
-    font-size: 28px;
-  }
-  
-  .img-fluid {
-    max-width: 100%;
-  }
-  
-  .resource .external-links-container {
-    justify-content: center;
-  }
+.resource .feature-list li {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  transition: all 0.3s ease;
+  color: white;
 }
 
-@media (max-width: 768px) {
-  .resource.section {
-    padding: 40px 0;
-  }
-  
-  .resource h3 {
-    font-size: 24px;
-  }
-  
-  .resource .external-links {
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .resource .external-btn {
-    width: 100%;
-    justify-content: center;
-  }
+.resource .feature-list li:hover {
+  transform: translateX(10px);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.resource .feature-list li i {
+  margin-right: 10px;
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
+.resource .feature-list li:hover i {
+  transform: rotate(15deg) scale(1.1);
 }
 
 /*--------------------------------------------------------------
@@ -1885,22 +1950,148 @@ section,
   padding: 15px;
 }
 
+/* Publications Dark Background Styles */
+.services.dark-background h2 {
+  color: white;
+}
+
+.services.dark-background p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.services.dark-background .portfolio-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 20px;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: block;
+  text-decoration: none;
+}
+
+.services.dark-background .portfolio-item:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+
+.services.dark-background .portfolio-info h4 {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.services.dark-background .portfolio-info p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.services.dark-background .portfolio-item:hover .portfolio-info h4 {
+  color: var(--accent-color);
+}
+
+.services.dark-background .portfolio-item:hover .portfolio-info p {
+  color: white;
+}
+
+.services.dark-background .portfolio-img img {
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.services.dark-background .portfolio-img img:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
 
 /*--------------------------------------------------------------
-# Acknowledgments Section
+# Team Section
 --------------------------------------------------------------*/
-.emoji {
-  font-size: 1.2em;
-  vertical-align: middle;
+.team .team-member {
+  background: var(--surface-color);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
-.lead strong {
+.team .team-member:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  border-color: var(--accent-color);
+}
+
+.team .member-info h4 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--heading-color);
+  transition: color 0.3s ease;
+}
+
+.team .team-member:hover .member-info h4 {
   color: var(--accent-color);
-  font-weight: 600;
 }
 
-.border-top {
-  border-top: 2px solid rgba(0,0,0,0.1) !important;
+.team .member-info p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.team .team-member:hover .member-info p {
+  color: var(--default-color);
+}
+
+.team .social {
+  display: flex;
+  gap: 12px;
+}
+
+.team .social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.team .social a:hover {
+  background: var(--accent-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px color-mix(in srgb, var(--accent-color), transparent 60%);
+}
+
+@media (max-width: 768px) {
+  .team .team-member {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .team .member-info h4 {
+    font-size: 20px;
+  }
+  
+  .team .social {
+    justify-content: center;
+  }
 }
 
 /*--------------------------------------------------------------
