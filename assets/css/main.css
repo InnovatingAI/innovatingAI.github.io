@@ -993,48 +993,48 @@ section,
 .agent.section {
   padding: 60px 0;
   position: relative;
-  max-width: 1200px; /* 新增最大宽度限制 */
-  margin: 0 auto; /* 居中显示 */
+  max-width: 1200px; /* Added maximum width constraint */
+  margin: 0 auto; /* Center display */
 }
 
 .agent .container {
-  padding: 0 20px; /* 添加内边距 */
+  padding: 0 20px; /* Added inner padding */
 }
 
 .agent h3 {
   font-weight: 700;
-  font-size: 34px; /* 与about section统一 */
+  font-size: 34px; /* Unified with about section */
   margin-bottom: 30px;
   color: var(--heading-color);
 }
 
 .agent p {
-  font-size: 16px; /* 标准字体大小 */
+  font-size: 16px; /* Standard font size */
   line-height: 1.6;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 30px; /* 与about section统一 */
+  margin-bottom: 30px; /* Unified with about section */
 }
 
 .agent .animate-list li {
-  padding-left: 30px; /* 调整缩进 */
+  padding-left: 30px; /* Adjusted indentation */
   margin-bottom: 15px;
 }
 
 .agent .img-fluid {
-  max-width: 90%; /* 限制图片宽度 */
+  max-width: 90%; /* Limited image width */
   height: auto;
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* 按钮组容器 */
+/* Button group container */
 .agent .btn-group {
   display: flex;
-  gap: 15px; /* 按钮间距 */
+  gap: 15px; /* Button spacing */
   margin-top: 30px;
 }
 
-/* 响应式调整 */
+/* Responsive adjustments */
 @media (max-width: 992px) {
   .agent.section {
     padding: 50px 0;
@@ -1064,7 +1064,7 @@ section,
   }
 }
 
-/* 统一按钮样式 - 与model-actions完全一致 */
+/* Unified button styles - completely consistent with model-actions */
 .agent .github-btn,
 .agent .arxiv-btn,
 .agent .huggingface-btn {
@@ -1079,10 +1079,10 @@ section,
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 70%);
   border: none;
-  margin-right: 15px; /* 统一使用右侧间距 */
+  margin-right: 15px; /* Unified use of right margin */
 }
 
-/* 统一悬停效果 */
+/* Unified hover effects */
 .agent .github-btn:hover,
 .agent .arxiv-btn:hover,
 .agent .huggingface-btn:hover {
@@ -1091,75 +1091,17 @@ section,
   background: var(--accent-color);
 }
 
-/* 统一图标样式 */
+/* Unified icon styles */
 .agent .github-btn i,
 .agent .arxiv-btn i {
-  margin-right: 8px; /* 统一使用右侧间距 */
+  margin-right: 8px; /* Unified use of right margin */
   font-size: 1.1em;
 }
 
-/* 移除单独的arXiv图标动画 */
+/* Remove separate arXiv icon animation */
 .agent .arxiv-btn i {
   transition: none;
   transform: none;
-}
-
-.agent .img-fluid {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.agent .img-fluid:hover {
-  transform: scale(1.03) translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .agent h3 {
-    font-size: 1.8rem;
-  }
-  
-  .agent .row.align-items-center {
-    flex-direction: column;
-  }
-  
-  .agent .order-lg-1, 
-  .agent .order-lg-2 {
-    order: 0 !important;
-  }
-  
-  .agent .img-fluid {
-    margin-bottom: 30px;
-    max-width: 80%;
-  }
-}
-
-@media (max-width: 768px) {
-  .agent.section {
-    padding: 40px 0;
-  }
-  
-  .agent h3 {
-    font-size: 1.6rem;
-  }
-  
-  .agent .img-fluid {
-    max-width: 100%;
-  }
-}
-
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .agent .arxiv-btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    margin-left: 10px;
-  }
 }
 
 /*--------------------------------------------------------------
@@ -1167,10 +1109,10 @@ section,
 --------------------------------------------------------------*/
 .benchmark.section {
   padding: 60px 0;
-  background: #005cab; /* 移除渐变背景 */
+  background: #005cab; /* Removed gradient background */
   position: relative;
-  width: 100%; /* 新增最大宽度限制 */
-  margin: 0 auto; /* 居中显示 */
+  width: 100%; /* Added maximum width constraint */
+  margin: 0 auto; /* Center display */
   --heading-color: white;
   --default-color: white;
 }
@@ -1183,18 +1125,18 @@ section,
   right: 0;
   bottom: 0;
   background: #005cab;
-  z-index: -1; /* 置于内容层下方 */
+  z-index: -1; /* Place below content layer */
 }
 
 .benchmark .tab-content {
-  max-width: 1200px; /* 内容区域保持1200px限制 */
+  max-width: 1200px; /* Content area maintains 1200px limit */
   margin: 0 auto;
   padding: 0 20px;
-  position: relative; /* 确保内容在背景层上方 */
+  position: relative; /* Ensure content is above background layer */
 }
 
 .benchmark .container {
-  padding: 0 20px; /* 添加内边距 */
+  padding: 0 20px; /* Added inner padding */
 }
 
 .benchmark h2 {
@@ -1203,44 +1145,44 @@ section,
 
 .benchmark li {
   color: white;
-  list-style-type: circle; /* 替换为实心方块 */
-  /* 可选值：（空心圆）、decimal（数字）、lower-alpha（小写字母）等 */
+  list-style-type: circle; /* Replaced with solid square */
+  /* Optional values: (hollow circle), decimal (numbers), lower-alpha (lowercase letters) etc */
 }
 
 .benchmark h3 {
   font-weight: 700;
-  font-size: 34px; /* 与about section统一 */
+  font-size: 34px; /* Unified with about section */
   margin-bottom: 30px;
   color: white;
 }
 
 .benchmark p {
-  font-size: 16px; /* 标准字体大小 */
+  font-size: 16px; /* Standard font size */
   line-height: 1.6;
   color: white;
-  margin-bottom: 30px; /* 与about section统一 */
+  margin-bottom: 30px; /* Unified with about section */
 }
 
 .benchmark .animate-list li {
-  padding-left: 30px; /* 调整缩进 */
+  padding-left: 30px; /* Adjusted indentation */
   margin-bottom: 15px;
 }
 
 .benchmark .img-fluid {
-  max-width: 90%; /* 限制图片宽度 */
+  max-width: 90%; /* Limited image width */
   height: auto;
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* 按钮组容器 */
+/* Button group container */
 .benchmark .btn-group {
   display: flex;
-  gap: 15px; /* 按钮间距 */
+  gap: 15px; /* Button spacing */
   margin-top: 30px;
 }
 
-/* 响应式调整 */
+/* Responsive adjustments */
 @media (max-width: 992px) {
   .benchmark.section {
     padding: 50px 0;
@@ -1270,7 +1212,7 @@ section,
   }
 }
 
-/* 统一按钮样式 - 与model-actions完全一致 */
+/* Unified button styles - completely consistent with model-actions */
 .benchmark .github-btn,
 .benchmark .arxiv-btn,
 .benchmark .huggingface-btn {
@@ -1285,10 +1227,10 @@ section,
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 70%);
   border: none;
-  margin-right: 15px; /* 统一使用右侧间距 */
+  margin-right: 15px; /* Unified use of right margin */
 }
 
-/* 统一悬停效果 */
+/* Unified hover effects */
 .benchmark .github-btn:hover,
 .benchmark .arxiv-btn:hover,
 .benchmark .huggingface-btn:hover {
@@ -1297,79 +1239,22 @@ section,
   background: var(--accent-color);
 }
 
-/* 统一图标样式 */
+/* Unified icon styles */
 .benchmark .github-btn i,
 .benchmark .arxiv-btn i {
-  margin-right: 8px; /* 统一使用右侧间距 */
+  margin-right: 8px; /* Unified use of right margin */
   font-size: 1.1em;
 }
 
-/* 移除单独的arXiv图标动画 */
+/* Remove separate arXiv icon animation */
 .benchmark .arxiv-btn i {
   transition: none;
   transform: none;
 }
 
-.benchmark .img-fluid {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-.benchmark .img-fluid:hover {
-  transform: scale(1.03) translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .benchmark h3 {
-    font-size: 1.8rem;
-  }
-  
-  .benchmark .row.align-items-center {
-    flex-direction: column;
-  }
-  
-  .benchmark .order-lg-1, 
-  .benchmark .order-lg-2 {
-    order: 0 !important;
-  }
-  
-  .benchmark .img-fluid {
-    margin-bottom: 30px;
-    max-width: 80%;
-  }
-}
-
-@media (max-width: 768px) {
-  .benchmark.section {
-    padding: 40px 0;
-  }
-  
-  .benchmark h3 {
-    font-size: 1.6rem;
-  }
-  
-  .benchmark .img-fluid {
-    max-width: 100%;
-  }
-}
-
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .benchmark .arxiv-btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    margin-left: 10px;
-  }
-}
-
-/* 代码块容器 */
+/* Code block container */
 .code-container {
-  background: #024471; /* 藏青色背景 */
+  background: #024471; /* Navy blue background */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   overflow: hidden;
@@ -1377,7 +1262,7 @@ section,
   margin: 0 auto;
 }
 
-/* 代码头部样式 */
+/* Code header styles */
 .code-header {
   background: rgba(0,0,0,0.2);
   padding: 8px 12px;
@@ -1386,7 +1271,7 @@ section,
   align-items: center;
 }
 
-/* 代码区域 */
+/* Code area */
 .code-block {
   color: #e2e8f0;
   font-family: 'Fira Code', monospace;
@@ -1394,15 +1279,15 @@ section,
   line-height: 1.5;
   margin: 0;
   padding: 16px;
-  white-space: pre-wrap; /* 允许换行 */
-  word-wrap: break-word; /* 单词过长时也换行 */
-  overflow-x: auto; /* 水平滚动条仅在需要时显示 */
+  white-space: pre-wrap; /* Allow line breaks */
+  word-wrap: break-word; /* Break long words */
+  overflow-x: auto; /* Show horizontal scrollbar only when needed */
   overflow-y: auto;
   max-height: 350px;
   counter-reset: line;
 }
 
-/* 代码高亮 */
+/* Code highlighting */
 .code-block code {
   display: block;
 }
@@ -1417,23 +1302,23 @@ section,
   text-align: right;
 }
 
-/* 语法高亮颜色 */
-.token.keyword { color: #ff79c6; }      /* 关键字 */
-.token.function { color: #50fa7b; }     /* 函数 */
-.token.string { color: #f1fa8c; }       /* 字符串 */
-.token.comment { color: #6272a4; }      /* 注释 */
-.token.punctuation { color: #bd93f9; }  /* 标点 */
-.token.number { color: #bd93f9; }       /* 数字 */
+/* Syntax highlighting colors */
+.token.keyword { color: #ff79c6; }      /* Keywords */
+.token.function { color: #50fa7b; }     /* Functions */
+.token.string { color: #f1fa8c; }       /* Strings */
+.token.comment { color: #6272a4; }      /* Comments */
+.token.punctuation { color: #bd93f9; }  /* Punctuation */
+.token.number { color: #bd93f9; }       /* Numbers */
 
-/* 滚动条轨道 */
+/* Scrollbar track */
 .code-block::-webkit-scrollbar-track {
   background: rgba(0,0,0,0.1);
   border-radius: 4px;
 }
 
-/* 滚动条滑块 */
+/* Scrollbar thumb */
 .code-block::-webkit-scrollbar-thumb {
-  background: #4f46e5; /* 靛蓝色滑块 */
+  background: #4f46e5; /* Indigo thumb */
   border-radius: 4px;
 }
 
@@ -1501,7 +1386,7 @@ section,
   margin-bottom: 15px;
 }
 
-/* Resource平台卡片浮动效果 */
+/* Resource platform card floating effects */
 .resource .platform-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
@@ -1518,7 +1403,7 @@ section,
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Resource图片浮动效果 */
+/* Resource image floating effects */
 .resource .img-fluid {
   max-width: 90%;
   height: auto;
@@ -1532,7 +1417,7 @@ section,
   box-shadow: 0 25px 50px rgba(0,0,0,0.3);
 }
 
-/* Resource按钮浮动效果 */
+/* Resource button floating effects */
 .resource .platform-actions .btn {
   background: var(--accent-color);
   color: white;
@@ -1550,7 +1435,7 @@ section,
   background: color-mix(in srgb, var(--accent-color), white 10%);
 }
 
-/* Resource导航标签浮动效果 */
+/* Resource navigation tab floating effects */
 .resource .platform-selector {
   margin-bottom: 40px;
 }
@@ -1606,7 +1491,7 @@ section,
   transform: rotate(10deg);
 }
 
-/* 外部链接按钮容器 */
+/* External link button container */
 .resource .external-links-container {
   display: flex;
   justify-content: flex-end;
@@ -1618,7 +1503,7 @@ section,
   gap: 10px;
 }
 
-/* 修改按钮文本和边框颜色为白色，添加浮动效果 */
+/* Modify button text and border color to white, add floating effects */
 .resource .external-links a {
   color: white !important;
   border-color: white !important;
@@ -1632,7 +1517,7 @@ section,
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Feature列表项浮动效果 */
+/* Feature list item floating effects */
 .resource .feature-list {
   list-style: none;
   padding: 0;
@@ -1707,7 +1592,7 @@ section,
   }
 }
 
-/* Model Section Buttons - 与.benchmark .github-btn保持一致 */
+/* Model Section Buttons - consistent with .benchmark .github-btn */
 .model-actions .btn-resource {
   display: inline-flex;
   align-items: center;
@@ -1719,13 +1604,13 @@ section,
   font-weight: 600;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px color-mix(in srgb, var(--accent-color), transparent 70%);
-  border: none; /* 移除边框 */
+  border: none; /* Remove border */
 }
 
 .model-actions .btn-resource:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 50%);
-  background: var(--accent-color); /* 保持悬停时颜色不变 */
+  background: var(--accent-color); /* Keep hover color unchanged */
 }
 
 .model-actions .btn-resource i {
@@ -1733,7 +1618,7 @@ section,
   font-size: 1.1em;
 }
 
-/* 响应式调整 */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .model-actions {
     text-align: center;
@@ -1978,6 +1863,10 @@ section,
   text-decoration: none;
 }
 
+.services.dark-background .portfolio-info {
+  margin-bottom: 15px;
+}
+
 .services.dark-background .portfolio-info h4 {
   color: white;
   font-size: 20px;
@@ -2000,6 +1889,10 @@ section,
 
 .services.dark-background .portfolio-item:hover .portfolio-info p {
   color: white;
+}
+
+.services.dark-background .portfolio-img {
+  margin-top: 15px;
 }
 
 .services.dark-background .portfolio-img img {
